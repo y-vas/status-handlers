@@ -14,6 +14,13 @@ try:
 except ImportError:
     print('Starlette is not installed, exeptions may not work')
 
+
+# Usage
+# app.add_exception_handler(
+#     err.base.HTTPException,
+#     err.middleware.starlette.middleware
+# )
+
 def middleware(request: Request, exc: HTTPException) -> Response:
     """
     Build a simple JSON response that includes the details of the exeptions
