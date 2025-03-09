@@ -25,7 +25,4 @@ def middleware(request: Request, exc: HTTPException) -> Response:
         status_code=exc.status_code
     )
 
-    response = request.app.state.limiter._inject_headers(
-        response, request.state.view_rate_limit
-    )
     return response
