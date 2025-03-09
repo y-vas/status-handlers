@@ -6,6 +6,24 @@ class E401(HTTPException):
         self.detail = "This resource requires proper authorization!"
         self.headers = None
 
+class E401_1(HTTPException):
+    def __init__(self):
+        self.status_code = 401.01
+        self.detail = 'Invalid credentials!'
+        self.headers = None
+
+class E401_2(HTTPException):
+    def __init__(self):
+        self.status_code = 401.02
+        self.detail = 'Session expired!'
+        self.headers = None
+
+class E401_3(HTTPException):
+    def __init__(self):
+        self.status_code = 401.03
+        self.detail = 'Invalid code!'
+        self.headers = None
+
 class E403(HTTPException):
     def __init__(self):
         self.status_code = 403
@@ -34,6 +52,18 @@ class E409_2(HTTPException):
     def __init__(self):
         self.status_code = 409.02
         self.detail = 'Conflict, this resource has reached max amount!'
+        self.headers = None
+
+class E409_3(HTTPException):
+    def __init__(self):
+        self.status_code = 409.03
+        self.detail = 'This accound is suspended!'
+        self.headers = None
+
+class E409_4(HTTPException):
+    def __init__(self, entity:str = 'resource' ):
+        self.status_code = 409.01
+        self.detail = f'Conflict, this {entity} can\'t be modified!'
         self.headers = None
 
 class E429(HTTPException):
