@@ -14,6 +14,7 @@ class HTTPException(Exception):
     ) -> None:
         if detail is None:
             detail = http.HTTPStatus(status_code).phrase
+
         self.status_code = status_code
         self.detail  = detail
         self.headers = headers
