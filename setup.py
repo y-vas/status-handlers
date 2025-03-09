@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 import re, os, glob
 try:
-    from setuptools import setup, Extension
+    from setuptools import setup, Extension, find_packages
 except ImportError:
     from ez_setup import use_setuptools
     use_setuptools()
-    from setuptools import setup, Extension
+    from setuptools import setup, Extension, find_packages
 
 # Following the recommendations of PEP 396 we parse the version number
 # out of the module.
@@ -26,7 +26,7 @@ setup(
     description="A library to standardize HTTP errors",
     long_description=err_readme,
     long_description_content_type='text/markdown',
-    packages=["err"],
+    packages=find_packages(),
     author='Vasyl Yovdiy',
     author_email='yovdiyvasyl@gmail.com',
     url="https://github.com/y-vas/status-handlers",
